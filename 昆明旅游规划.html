@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肇庆 → 昆明 | 4天3晚旅行规划</title>
+<style>
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2333;
+  --bg-card-hover: #222d40;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent-pink: #f778ba;
+  --accent-purple: #bc8cff;
+  --accent-blue: #58a6ff;
+  --accent-teal: #3fb8af;
+  --accent-green: #3fb950;
+  --gradient-main: linear-gradient(135deg, #f778ba 0%, #bc8cff 40%, #58a6ff 70%, #3fb8af 100%);
+  --gradient-warm: linear-gradient(135deg, #f778ba 0%, #bc8cff 100%);
+  --gradient-cool: linear-gradient(135deg, #58a6ff 0%, #3fb8af 100%);
+  --border-color: rgba(139,148,158,0.15);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.3);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 80px 40px;
+  text-align: center;
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(88,166,255,0.08) 0%, rgba(63,184,175,0.05) 100%);
+  border: 1px solid var(--border-color);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(188,140,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(63,184,175,0.06) 0%, transparent 50%);
+  animation: heroFloat 20s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, -10px); }
+}
+.hero-content { position: relative; z-index: 1; }
+.hero .route {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero .route .city { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero .route .arrow { color: var(--text-muted); font-size: 22px; }
+.hero .subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.hero .tags {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero .tag {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+}
+.hero .meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.hero .meta-item {
+  text-align: center;
+}
+.hero .meta-item .value {
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--gradient-cool);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .meta-item .label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===== SECTION ===== */
+.section {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.6s ease forwards;
+}
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+.section:nth-child(5) { animation-delay: 0.4s; }
+.section:nth-child(6) { animation-delay: 0.5s; }
+.section:nth-child(7) { animation-delay: 0.6s; }
+.section:nth-child(8) { animation-delay: 0.7s; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+.section-header .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.section-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.section-header .desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover { border-color: rgba(139,148,158,0.3); background: var(--bg-card-hover); }
+
+/* ===== TRANSPORT ===== */
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+.transport-card .transport-type {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.transport-card .transport-type .badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+.badge-recommend { background: rgba(63,185,80,0.15); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.3); }
+.badge-fast { background: rgba(88,166,255,0.15); color: var(--accent-blue); border: 1px solid rgba(88,166,255,0.3); }
+.transport-details { display: flex; flex-direction: column; gap: 8px; }
+.transport-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.transport-row .label { color: var(--text-secondary); }
+.transport-row .value { font-weight: 600; }
+.transport-note {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(88,166,255,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent-blue);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ===== ITINERARY ===== */
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.day-header {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.day-header:hover { background: var(--bg-card-hover); }
+.day-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.day-1 .day-num { background: rgba(247,120,186,0.15); color: var(--accent-pink); border: 1px solid rgba(247,120,186,0.3); }
+.day-2 .day-num { background: rgba(188,140,255,0.15); color: var(--accent-purple); border: 1px solid rgba(188,140,255,0.3); }
+.day-3 .day-num { background: rgba(88,166,255,0.15); color: var(--accent-blue); border: 1px solid rgba(88,166,255,0.3); }
+.day-4 .day-num { background: rgba(63,184,175,0.15); color: var(--accent-teal); border: 1px solid rgba(63,184,175,0.3); }
+.day-info .day-title { font-size: 16px; font-weight: 700; }
+.day-info .day-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.day-info .day-tags { display: flex; gap: 6px; margin-top: 6px; }
+.day-info .day-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-color); }
+.day-toggle {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+.day-card.open .day-toggle { transform: rotate(180deg); }
+.day-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.day-card.open .day-body { max-height: 3000px; }
+.day-content { padding: 0 24px 24px; }
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-pink), var(--accent-purple), var(--accent-blue), var(--accent-teal));
+  opacity: 0.3;
+}
+.timeline-item { position: relative; margin-bottom: 20px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--bg-card);
+}
+.day-1 .timeline-dot { border-color: var(--accent-pink); }
+.day-2 .timeline-dot { border-color: var(--accent-purple); }
+.day-3 .timeline-dot { border-color: var(--accent-blue); }
+.day-4 .timeline-dot { border-color: var(--accent-teal); }
+.timeline-time {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.timeline-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.timeline-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.timeline-tips {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.timeline-tip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(247,120,186,0.08);
+  color: var(--accent-pink);
+  border: 1px solid rgba(247,120,186,0.15);
+}
+
+/* ===== ACCOMMODATION ===== */
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.hotel-card { position: relative; }
+.hotel-card .hotel-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.hotel-card .hotel-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.hotel-card .hotel-area {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.hotel-card .hotel-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.hotel-card .feature {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+.hotel-card .hotel-price {
+  font-size: 14px;
+  font-weight: 700;
+}
+.hotel-card .hotel-price span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ===== FOOD ===== */
+.food-list { display: flex; flex-direction: column; gap: 12px; }
+.food-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  transition: border-color 0.3s;
+}
+.food-item:hover { border-color: rgba(139,148,158,0.3); }
+.food-item .food-rank {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: rgba(188,140,255,0.1);
+  color: var(--accent-purple);
+  border: 1px solid rgba(188,140,255,0.25);
+}
+.food-item .food-info { flex: 1; }
+.food-item .food-name { font-size: 15px; font-weight: 600; }
+.food-item .food-shop { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.food-item .food-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-teal);
+  flex-shrink: 0;
+}
+
+/* ===== BUDGET ===== */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.budget-table th {
+  text-align: left;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-color);
+}
+.budget-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.budget-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; text-align: right; }
+.budget-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+.budget-table td:last-child { text-align: right; font-weight: 600; }
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table .total-row {
+  background: rgba(188,140,255,0.05);
+}
+.budget-table .total-row td {
+  font-weight: 700;
+  font-size: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* ===== PACKING ===== */
+.packing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.packing-card .pack-category {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.packing-card .pack-category .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.packing-card ul { list-style: none; }
+.packing-card li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+.packing-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+/* ===== TIPS ===== */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.tip-card .tip-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tip-card ul { list-style: none; }
+.tip-card li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+.tip-card li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+/* ===== SCENIC SPOTS ===== */
+.spot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.spot-card {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.2s;
+  cursor: default;
+}
+.spot-card:hover { border-color: rgba(188,140,255,0.4); transform: translateY(-2px); }
+.spot-card .spot-emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+.spot-card .spot-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.spot-card .spot-price { font-size: 12px; color: var(--accent-teal); font-weight: 600; }
+.spot-card .spot-time { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(13,17,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 0;
+  transition: transform 0.3s;
+}
+.nav.hidden { transform: translateY(-100%); }
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+.nav-link {
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid transparent;
+}
+.nav-link:hover, .nav-link.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 40px;
+}
+.footer .gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ===== WEATHER BAR ===== */
+.weather-bar {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.weather-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.weather-item .w-icon { font-size: 20px; }
+.weather-item .w-label { color: var(--text-muted); font-size: 12px; }
+.weather-item .w-value { font-weight: 600; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .hero { padding: 40px 20px; }
+  .hero .route { font-size: 22px; }
+  .hero .meta-row { gap: 16px; }
+  .day-content { padding: 0 16px 16px; }
+  .transport-grid, .hotel-grid, .food-list { grid-template-columns: 1fr; }
+  .spot-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#overview" class="nav-link active" data-section="overview">概览</a>
+    <a href="#transport" class="nav-link" data-section="transport">交通</a>
+    <a href="#weather" class="nav-link" data-section="weather">天气</a>
+    <a href="#itinerary" class="nav-link" data-section="itinerary">行程</a>
+    <a href="#attractions" class="nav-link" data-section="attractions">景点</a>
+    <a href="#accommodation" class="nav-link" data-section="accommodation">住宿</a>
+    <a href="#food" class="nav-link" data-section="food">美食</a>
+    <a href="#budget" class="nav-link" data-section="budget">预算</a>
+    <a href="#packing" class="nav-link" data-section="packing">清单</a>
+    <a href="#tips" class="nav-link" data-section="tips">贴士</a>
+  </div>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+
+<!-- HERO -->
+<section id="overview" class="section">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="route">
+        <span class="city">肇庆</span>
+        <span class="arrow">--></span>
+        <span class="city">昆明</span>
+      </div>
+      <p class="subtitle">4天3晚 | 春城漫游 | 滇池风光 | 石林奇观 | 民族文化</p>
+      <div class="tags">
+        <span class="tag">世界自然遗产</span>
+        <span class="tag">26个民族文化</span>
+        <span class="tag">亚洲最大花市</span>
+        <span class="tag">过桥米线发源地</span>
+      </div>
+      <div class="meta-row">
+        <div class="meta-item">
+          <div class="value">4天3晚</div>
+          <div class="label">建议天数</div>
+        </div>
+        <div class="meta-item">
+          <div class="value">15-26 C</div>
+          <div class="label">5月气温</div>
+        </div>
+        <div class="meta-item">
+          <div class="value">约 2500</div>
+          <div class="label">人均预算(元)</div>
+        </div>
+        <div class="meta-item">
+          <div class="value">10+景点</div>
+          <div class="label">核心打卡</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section id="transport" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(88,166,255,0.1); color: var(--accent-blue); border: 1px solid rgba(88,166,255,0.2);">T</div>
+    <h2>交通方案</h2>
+    <span class="desc">肇庆出发抵达昆明</span>
+  </div>
+  <div class="transport-grid">
+    <div class="card transport-card">
+      <div class="transport-type">
+        高铁 / 动车 (推荐)
+        <span class="badge badge-recommend">推荐</span>
+      </div>
+      <div class="transport-details">
+        <div class="transport-row"><span class="label">出发站</span><span class="value">肇庆东站</span></div>
+        <div class="transport-row"><span class="label">到达站</span><span class="value">昆明南站</span></div>
+        <div class="transport-row"><span class="label">参考车次</span><span class="value">D3822 / D3818 等</span></div>
+        <div class="transport-row"><span class="label">运行时间</span><span class="value">约 6-7 小时</span></div>
+        <div class="transport-row"><span class="label">票价(二等座)</span><span class="value">约 370-430 元</span></div>
+        <div class="transport-row"><span class="label">班次频率</span><span class="value">每日多班</span></div>
+      </div>
+      <div class="transport-note">建议提前 3-5 天在 12306 购票，选靠窗座位沿途欣赏云贵高原风光。早班车 08:00 左右出发，下午 15:00 前后抵达，当天下午即可游玩。</div>
+    </div>
+    <div class="card transport-card">
+      <div class="transport-type">
+        飞机
+        <span class="badge badge-fast">最快</span>
+      </div>
+      <div class="transport-details">
+        <div class="transport-row"><span class="label">出发</span><span class="value">广州白云机场</span></div>
+        <div class="transport-row"><span class="label">到达</span><span class="value">昆明长水机场</span></div>
+        <div class="transport-row"><span class="label">航班时间</span><span class="value">约 2.5 小时</span></div>
+        <div class="transport-row"><span class="label">参考票价</span><span class="value">约 500-900 元</span></div>
+        <div class="transport-row"><span class="label">肇庆→广州</span><span class="value">高铁约 1 小时</span></div>
+      </div>
+      <div class="transport-note">需额外考虑肇庆到广州的交通时间和费用。航班受天气影响较大，性价比不如高铁，适合时间紧张的旅客。</div>
+    </div>
+    <div class="card transport-card">
+      <div class="transport-type">市内交通</div>
+      <div class="transport-details">
+        <div class="transport-row"><span class="label">地铁</span><span class="value">覆盖核心景点，2-7 元/次</span></div>
+        <div class="transport-row"><span class="label">公交</span><span class="value">线路密集，1-2 元/次</span></div>
+        <div class="transport-row"><span class="label">出租车/网约车</span><span class="value">市区 15-40 元/次</span></div>
+        <div class="transport-row"><span class="label">共享单车</span><span class="value">翠湖/老街周边骑行便利</span></div>
+        <div class="transport-row"><span class="label">石林往返</span><span class="value">高铁 18 分钟(昆明南)</span></div>
+      </div>
+      <div class="transport-note">建议办理昆明交通卡或使用手机扫码乘车，地铁 + 网约车组合最便捷。</div>
+    </div>
+  </div>
+</section>
+
+<!-- WEATHER -->
+<section id="weather" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(63,184,175,0.1); color: var(--accent-teal); border: 1px solid rgba(63,184,175,0.2);">W</div>
+    <h2>天气与穿衣</h2>
+    <span class="desc">5月下旬昆明气候</span>
+  </div>
+  <div class="weather-bar">
+    <div class="weather-item">
+      <span class="w-icon">&#127777;</span>
+      <div><div class="w-label">最高气温</div><div class="w-value">26 C</div></div>
+    </div>
+    <div class="weather-item">
+      <span class="w-icon">&#127775;</span>
+      <div><div class="w-label">最低气温</div><div class="w-value">15 C</div></div>
+    </div>
+    <div class="weather-item">
+      <span class="w-icon">&#127782;</span>
+      <div><div class="w-label">体感</div><div class="w-value">温暖舒适</div></div>
+    </div>
+    <div class="weather-item">
+      <span class="w-icon">&#127783;</span>
+      <div><div class="w-label">紫外线</div><div class="w-value">较强 需防晒</div></div>
+    </div>
+    <div class="weather-item">
+      <span class="w-icon">&#127784;</span>
+      <div><div class="w-label">降雨</div><div class="w-value">偶有阵雨</div></div>
+    </div>
+    <div class="weather-item">
+      <span class="w-icon">&#128092;</span>
+      <div><div class="w-label">穿衣</div><div class="w-value">洋葱式分层</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section id="itinerary" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(247,120,186,0.1); color: var(--accent-pink); border: 1px solid rgba(247,120,186,0.2);">I</div>
+    <h2>详细行程</h2>
+    <span class="desc">4天3晚 精选路线</span>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="day-card day-1 open" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-num">D1</div>
+      <div class="day-info">
+        <div class="day-title">抵达昆明 / 市区漫步</div>
+        <div class="day-desc">翠湖 - 陆军讲武堂 - 昆明老街 - 酒杯楼夜景</div>
+        <div class="day-tags">
+          <span class="day-tag">人文历史</span>
+          <span class="day-tag">City Walk</span>
+          <span class="day-tag">夜景</span>
+        </div>
+      </div>
+      <div class="day-toggle">V</div>
+    </div>
+    <div class="day-body">
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">08:00 - 15:00 | 交通</div>
+            <div class="timeline-title">肇庆东站 → 昆明南站</div>
+            <div class="timeline-desc">乘坐高铁约 6-7 小时，建议选 D3822(08:14发) 或 D3818 等车次。沿途经过广西、贵州，欣赏云贵高原逐渐变化的地貌。自带零食和充电宝，靠窗座位视野极佳。</div>
+            <div class="timeline-tips"><span class="timeline-tip">提前12306购票</span><span class="timeline-tip">靠窗座</span><span class="timeline-tip">带充电宝</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">15:30 - 16:30 | 入住</div>
+            <div class="timeline-title">到达昆明 / 酒店入住</div>
+            <div class="timeline-desc">昆明南站乘地铁到市区约 40 分钟，推荐住翠湖或南屏街附近。入住后稍作休息，换上舒适鞋子开始市区漫步。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">16:30 - 18:00 | 景点</div>
+            <div class="timeline-title">翠湖公园</div>
+            <div class="timeline-desc">昆明市中心的"城市绿肺"，原为云南王唐继尧的私家花园。5月荷花初绽，湖面宁静，黑天鹅游弋。公园周围有云南大学、文林街文艺区，适合散步拍照。免费入园，刷身份证即可。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费</span><span class="timeline-tip">1-2小时</span><span class="timeline-tip">带身份证</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">18:00 - 19:00 | 景点</div>
+            <div class="timeline-title">云南陆军讲武堂</div>
+            <div class="timeline-desc">紧邻翠湖西岸，朱德元帅母校，中国近代著名军事院校。黄墙绿瓦的明黄色建筑极具辨识度，内部设有"百年军校 将帅摇篮"展览。需在公众号提前预约，免费参观。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费(需预约)</span><span class="timeline-tip">1小时</span><span class="timeline-tip">拍照圣地</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">19:00 - 21:00 | 晚餐 + 夜景</div>
+            <div class="timeline-title">昆明老街 + 酒杯楼</div>
+            <div class="timeline-desc">民国风建筑群，酒杯楼是标志性打卡点，弧形建筑如同酒杯。逛老街各类文创小店，晚餐推荐品尝小锅米线（端仕小锅/铁棚小锅）或汽锅鸡。夜间灯光亮起，氛围感拉满。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费逛</span><span class="timeline-tip">小锅米线15元</span><span class="timeline-tip">夜景必看</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="day-card day-2" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-num">D2</div>
+      <div class="day-info">
+        <div class="day-title">滇池风光 / 石林奇观</div>
+        <div class="day-desc">滇池海埂大坝 - 云南民族村 / 石林风景区</div>
+        <div class="day-tags">
+          <span class="day-tag">自然风光</span>
+          <span class="day-tag">世界遗产</span>
+          <span class="day-tag">民族风情</span>
+        </div>
+      </div>
+      <div class="day-toggle">V</div>
+    </div>
+    <div class="day-body">
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">08:00 - 08:40 | 早餐</div>
+            <div class="timeline-title">篆新农贸市场</div>
+            <div class="timeline-desc">昆明最大最有烟火气的菜市场，各类地道云南小吃汇聚于此。推荐：豆花米线、烤饵块、木瓜水、各类新鲜水果。空腹来逛2小时，是感受昆明本地生活的最佳去处。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费入场</span><span class="timeline-tip">空腹去</span><span class="timeline-tip">人均30元吃饱</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">09:00 - 11:30 | 景点</div>
+            <div class="timeline-title">滇池海埂大坝</div>
+            <div class="timeline-desc">昆明人的"城市客厅"，500里滇池尽收眼底，远眺西山睡美人。5月可欣赏湖畔花海，视野开阔，湖风拂面。观光车 20 元/人（可选），鸥粮 10 元/袋。建议上午光线好时拍照。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费</span><span class="timeline-tip">2-3小时</span><span class="timeline-tip">防晒必备</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">11:30 - 13:00 | 景点</div>
+            <div class="timeline-title">云南民族村</div>
+            <div class="timeline-desc">紧邻海埂大坝，汇聚云南26个民族的村寨缩影。可观赏民族歌舞表演（11:00/15:00 有专场），体验傣族泼水、彝族火把、白族三道茶等民俗。门票 90 元，建议游览 2-3 小时。</div>
+            <div class="timeline-tips"><span class="timeline-tip">门票90元</span><span class="timeline-tip">3-4小时</span><span class="timeline-tip">注意表演时间</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">13:00 - 14:00 | 午餐</div>
+            <div class="timeline-title">民族村周边午餐</div>
+            <div class="timeline-desc">景区内有各民族特色餐饮，也可前往市区用餐。推荐尝试傣味手抓饭、白族砂锅鱼等民族风味。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">14:30 - 18:30 | 景点</div>
+            <div class="timeline-title">石林风景区 (高铁往返)</div>
+            <div class="timeline-desc">从昆明南站乘高铁 18 分钟直达石林西站。世界自然遗产、国家 5A 景区，典型的喀斯特地貌奇观。大石林、小石林、步哨山观景台、阿诗玛化身石是必打卡点。建议请讲解员（50元）了解地质和彝族传说。门票 130 元 + 电瓶车 25 元。</div>
+            <div class="timeline-tips"><span class="timeline-tip">门票130+25元</span><span class="timeline-tip">高铁18分钟</span><span class="timeline-tip">4-5小时</span><span class="timeline-tip">穿运动鞋</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">19:30 - 21:00 | 晚餐</div>
+            <div class="timeline-title">菌子火锅</div>
+            <div class="timeline-desc">回市区后晚餐必吃菌子火锅！推荐石屏会馆(关上店)或野生菌一条街。青头菌、牛肝菌口感如肉，牛肝菌炖鸡鲜到掉眉毛。人均 80-100 元。注意菌子一定要煮熟再吃。</div>
+            <div class="timeline-tips"><span class="timeline-tip">人均80-100元</span><span class="timeline-tip">菌子必须煮熟</span><span class="timeline-tip">季节限定</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="day-card day-3" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-num">D3</div>
+      <div class="day-info">
+        <div class="day-title">西山揽胜 / 花市寻香</div>
+        <div class="day-desc">西山森林公园 - 龙门 - 斗南花市</div>
+        <div class="day-tags">
+          <span class="day-tag">登高望远</span>
+          <span class="day-tag">花海</span>
+          <span class="day-tag">夜市</span>
+        </div>
+      </div>
+      <div class="day-toggle">V</div>
+    </div>
+    <div class="day-body">
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">08:00 - 08:30 | 早餐</div>
+            <div class="timeline-title">酒店早餐 / 过桥米线</div>
+            <div class="timeline-desc">推荐建新园(宝善街店)或桥香园品尝正宗过桥米线。滚烫鸡汤端上桌，依次放入生肉片、鹌鹑蛋、豆腐皮、蔬菜，最后加入米线。百年的味道，是昆明人的灵魂早餐。人均 30-50 元。</div>
+            <div class="timeline-tips"><span class="timeline-tip">人均30-50元</span><span class="timeline-tip">百年老店</span><span class="timeline-tip">先荤后素</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">09:00 - 12:30 | 景点</div>
+            <div class="timeline-title">西山森林公园 (龙门)</div>
+            <div class="timeline-desc">昆明"睡美人"山，俯瞰滇池全景的最佳机位。建议乘车至山顶，步行下山游览龙门石窟。龙门石窟建于悬崖峭壁之上，从龙门远眺，五百里滇池尽收眼底，震撼壮观。门票 30 元，索道单程 40 元，景区大巴 10 元。早上云雾缭绕时景色最佳。</div>
+            <div class="timeline-tips"><span class="timeline-tip">门票30+索道40元</span><span class="timeline-tip">3-4小时</span><span class="timeline-tip">早上去</span><span class="timeline-tip">穿运动鞋</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">12:30 - 14:00 | 午餐</div>
+            <div class="timeline-title">西山/市区午餐</div>
+            <div class="timeline-desc">下山后回市区用餐，推荐尝试汽锅鸡或宣威火腿。云南菜偏酸辣鲜香，口味丰富。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">14:30 - 17:00 | 景点</div>
+            <div class="timeline-title">官渡古镇</div>
+            <div class="timeline-desc">千年滇中古镇，真正的本地生活气息。推荐品尝官渡粑粑（现烤，5-10元/个，咸甜两种）、米浆粑粑、凉粉、卷粉。非遗乌铜走银工艺值得一看，古镇内购物可讲价。免费入场，建议傍晚时分来，灯火阑珊最有味道。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费</span><span class="timeline-tip">2-3小时</span><span class="timeline-tip">官渡粑粑必尝</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">20:00 - 22:00 | 景点</div>
+            <div class="timeline-title">斗南花市</div>
+            <div class="timeline-desc">亚洲最大的鲜切花交易市场，每天晚上 8 点后进入交易高峰，整个市场变成花的海洋。玫瑰 10 元一大束、满天星 5 元一把，白菜价买花。可以买一束鲜花带回酒店装点心情，也可直接快递寄回肇庆。免费入场，建议空手去满载归。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费</span><span class="timeline-tip">20:00后最佳</span><span class="timeline-tip">可快递寄回</span><span class="timeline-tip">现金+微信</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="day-card day-4" onclick="toggleDay(this)">
+    <div class="day-header">
+      <div class="day-num">D4</div>
+      <div class="day-info">
+        <div class="day-title">博物馆 / 特产采购 / 返程</div>
+        <div class="day-desc">云南省博物馆 - 大观公园 - 购买特产 - 返程</div>
+        <div class="day-tags">
+          <span class="day-tag">文化研学</span>
+          <span class="day-tag">特产采购</span>
+          <span class="day-tag">返程</span>
+        </div>
+      </div>
+      <div class="day-toggle">V</div>
+    </div>
+    <div class="day-body">
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">08:30 - 10:30 | 景点</div>
+            <div class="timeline-title">云南省博物馆</div>
+            <div class="timeline-desc">云南历史文化缩影，馆藏丰富。镇馆之宝：牛虎铜案（战国时期青铜器）、古滇国文物。免费参观但需提前在公众号预约，注意周一闭馆。建议预留 2 小时。</div>
+            <div class="timeline-tips"><span class="timeline-tip">免费(需预约)</span><span class="timeline-tip">2-3小时</span><span class="timeline-tip">周一闭馆</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">10:30 - 12:00 | 景点</div>
+            <div class="timeline-title">大观公园</div>
+            <div class="timeline-desc">"天下第一长联"所在地，清代孙髯翁所撰 180 字长联气势磅礴，上联写滇池风物，下联述云南历史。公园内可远眺西山睡美人，5月海棠花海盛开。门票 20 元。</div>
+            <div class="timeline-tips"><span class="timeline-tip">门票20元</span><span class="timeline-tip">1-2小时</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">12:00 - 14:00 | 午餐 + 采购</div>
+            <div class="timeline-title">午餐 & 特产采购</div>
+            <div class="timeline-desc">最后一顿午餐，再吃一碗过桥米线。饭后前往购买特产：鲜花饼（嘉华/潘祥记，现烤最佳）、云腿月饼（桂美轩）、普洱茶、野生菌干品。南屏步行街和沃尔玛均有售。</div>
+            <div class="timeline-tips"><span class="timeline-tip">鲜花饼嘉华/潘祥记</span><span class="timeline-tip">普洱茶</span><span class="timeline-tip">野生菌干品</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">14:30 | 返程</div>
+            <div class="timeline-title">昆明南站 → 肇庆东站</div>
+            <div class="timeline-desc">从酒店出发前往昆明南站，建议提前 40 分钟到达。推荐下午 15:00-16:00 的车次，约 21:00-22:00 抵达肇庆，当天到家。难忘的昆明之旅画上完美句号。</div>
+            <div class="timeline-tips"><span class="timeline-tip">提前40分钟到站</span><span class="timeline-tip">约6-7小时</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section id="attractions" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(63,185,80,0.1); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.2);">A</div>
+    <h2>核心景点速览</h2>
+    <span class="desc">10大必打卡景点</span>
+  </div>
+  <div class="spot-grid">
+    <div class="spot-card"><span class="spot-emoji">&#127754;</span><div class="spot-name">滇池海埂大坝</div><div class="spot-price">免费</div><div class="spot-time">2-3h | 评分 4.9</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127956;</span><div class="spot-name">石林风景区</div><div class="spot-price">130+25元</div><div class="spot-time">4-5h | 评分 4.8</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127748;</span><div class="spot-name">云南民族村</div><div class="spot-price">90元</div><div class="spot-time">3-4h | 评分 4.8</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127800;</span><div class="spot-name">翠湖公园</div><div class="spot-price">免费</div><div class="spot-time">1-2h | 评分 4.7</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#9968;</span><div class="spot-name">西山龙门</div><div class="spot-price">30+40元</div><div class="spot-time">3-4h | 评分 4.6</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127983;</span><div class="spot-name">官渡古镇</div><div class="spot-price">免费</div><div class="spot-time">2-3h | 评分 4.5</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127963;</span><div class="spot-name">大观公园</div><div class="spot-price">20元</div><div class="spot-time">1-2h | 评分 4.5</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127964;</span><div class="spot-name">陆军讲武堂</div><div class="spot-price">免费(预约)</div><div class="spot-time">1-2h | 评分 4.4</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#127895;</span><div class="spot-name">斗南花市</div><div class="spot-price">免费</div><div class="spot-time">2h | 夜间最佳</div></div>
+    <div class="spot-card"><span class="spot-emoji">&#128218;</span><div class="spot-name">省博物馆</div><div class="spot-price">免费(预约)</div><div class="spot-time">2-3h | 周一闭馆</div></div>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section id="accommodation" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(188,140,255,0.1); color: var(--accent-purple); border: 1px solid rgba(188,140,255,0.2);">H</div>
+    <h2>住宿推荐</h2>
+    <span class="desc">按不同预算和需求</span>
+  </div>
+  <div class="hotel-grid">
+    <div class="card hotel-card">
+      <span class="hotel-badge badge-recommend">性价比优选</span>
+      <div class="hotel-name">全季酒店 (南屏步行街店)</div>
+      <div class="hotel-area">翠湖 / 南屏街商圈 | 地铁1/2号线</div>
+      <div class="hotel-features">
+        <span class="feature">市中心</span>
+        <span class="feature">地铁旁</span>
+        <span class="feature">购物便利</span>
+        <span class="feature">品质连锁</span>
+      </div>
+      <div class="hotel-price">280 - 380 元/晚 <span>(大床/双床)</span></div>
+    </div>
+    <div class="card hotel-card">
+      <span class="hotel-badge" style="background: rgba(88,166,255,0.15); color: var(--accent-blue); border: 1px solid rgba(88,166,255,0.3);">品质之选</span>
+      <div class="hotel-name">翠湖宾馆</div>
+      <div class="hotel-area">翠湖西路 | 推窗见湖</div>
+      <div class="hotel-features">
+        <span class="feature">五星老牌</span>
+        <span class="feature">湖景房</span>
+        <span class="feature">民国风</span>
+        <span class="feature">步行翠湖</span>
+      </div>
+      <div class="hotel-price">500 - 800 元/晚 <span>(湖景房)</span></div>
+    </div>
+    <div class="card hotel-card">
+      <span class="hotel-badge" style="background: rgba(63,184,175,0.15); color: var(--accent-teal); border: 1px solid rgba(63,184,175,0.3);">经济实惠</span>
+      <div class="hotel-name">智选假日 / 如家商旅</div>
+      <div class="hotel-area">昆明站 / 南屏街 | 交通便利</div>
+      <div class="hotel-features">
+        <span class="feature">干净整洁</span>
+        <span class="feature">性价比高</span>
+        <span class="feature">近火车站</span>
+        <span class="feature">连锁品牌</span>
+      </div>
+      <div class="hotel-price">180 - 260 元/晚 <span>(标准间)</span></div>
+    </div>
+  </div>
+  <div class="transport-note" style="margin-top: 16px;">
+    推荐住宿区域：翠湖/南屏街附近，地铁便利，步行可达翠湖、老街、陆军讲武堂等景点。旺季(7-8月/国庆)价格上浮 30-50%，建议提前 2-3 周预订。
+  </div>
+</section>
+
+<!-- FOOD -->
+<section id="food" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(247,120,186,0.1); color: var(--accent-pink); border: 1px solid rgba(247,120,186,0.2);">F</div>
+    <h2">美食攻略</h2>
+    <span class="desc">不可错过的昆明味道</span>
+  </div>
+  <div class="food-list">
+    <div class="food-item">
+      <div class="food-rank">1</div>
+      <div class="food-info">
+        <div class="food-name">过桥米线</div>
+        <div class="food-shop">建新园(宝善街店) / 桥香园</div>
+      </div>
+      <div class="food-price">30-50元</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">2</div>
+      <div class="food-info">
+        <div class="food-name">菌子火锅</div>
+        <div class="food-shop">石屏会馆(关上店) / 野生菌一条街</div>
+      </div>
+      <div class="food-price">80-100元</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">3</div>
+      <div class="food-info">
+        <div class="food-name">汽锅鸡</div>
+        <div class="food-shop">福照楼 / 翠府</div>
+      </div>
+      <div class="food-price">60-80元</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">4</div>
+      <div class="food-info">
+        <div class="food-name">小锅米线</div>
+        <div class="food-shop">端仕小锅 / 铁棚小锅米线</div>
+      </div>
+      <div class="food-price">15元</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">5</div>
+      <div class="food-info">
+        <div class="food-name">官渡粑粑</div>
+        <div class="food-shop">官渡古镇现烤摊位</div>
+      </div>
+      <div class="food-price">5-10元/个</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">6</div>
+      <div class="food-info">
+        <div class="food-name">烧饵块</div>
+        <div class="food-shop">英凤烧饵块(连锁)</div>
+      </div>
+      <div class="food-price">3-5元</div>
+    </div>
+    <div class="food-item">
+      <div class="food-rank">7</div>
+      <div class="food-info">
+        <div class="food-name">鲜花饼</div>
+        <div class="food-shop">嘉华 / 潘祥记 (现烤最佳)</div>
+      </div>
+      <div class="food-price">5-8元/个</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(63,184,175,0.1); color: var(--accent-teal); border: 1px solid rgba(63,184,175,0.2);">B</div>
+    <h2>预算清单</h2>
+    <span class="desc">人均参考（不含购物）</span>
+  </div>
+  <div class="card" style="overflow-x: auto;">
+    <table class="budget-table">
+      <thead>
+        <tr><th>项目</th><th>明细</th><th>费用(元)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>往返高铁</td>
+          <td>肇庆东-昆明南 二等座往返</td>
+          <td>740 - 860</td>
+        </tr>
+        <tr>
+          <td>住宿(3晚)</td>
+          <td>全季/智选 均价 250-350/晚</td>
+          <td>750 - 1050</td>
+        </tr>
+        <tr>
+          <td>景点门票</td>
+          <td>石林130+25 / 西山30+40 / 民族村90 / 大观20</td>
+          <td>285 - 335</td>
+        </tr>
+        <tr>
+          <td>餐饮(4天)</td>
+          <td>日均 100-120 元(含正餐+小吃+饮品)</td>
+          <td>400 - 480</td>
+        </tr>
+        <tr>
+          <td>市内交通</td>
+          <td>地铁+打车+石林高铁 20</td>
+          <td>100 - 150</td>
+        </tr>
+        <tr>
+          <td>杂项</td>
+          <td>鲜花/零食/饮料/纪念品</td>
+          <td>100 - 200</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2">合计（人均）</td>
+          <td style="background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">约 2375 - 3075</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="transport-note" style="margin-top: 12px;">
+    经济方案（青旅+公共交通+精简餐饮）可控制在 1800 元以内。品质方案（五星酒店+包车+丰富餐饮）约 4000-5000 元。以上为 2026 年 5 月淡季参考价格。
+  </div>
+</section>
+
+<!-- PACKING -->
+<section id="packing" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(88,166,255,0.1); color: var(--accent-blue); border: 1px solid rgba(88,166,255,0.2);">P</div>
+    <h2>行前清单</h2>
+    <span class="desc">出发前逐项确认</span>
+  </div>
+  <div class="packing-grid">
+    <div class="card packing-card">
+      <div class="pack-category"><span class="dot" style="background: var(--accent-pink);"></span> 证件类</div>
+      <ul>
+        <li>身份证 (必带)</li>
+        <li>学生证 (门票优惠)</li>
+        <li>手机 (电量充满)</li>
+        <li>充电宝 + 数据线</li>
+      </ul>
+    </div>
+    <div class="card packing-card">
+      <div class="pack-category"><span class="dot" style="background: var(--accent-purple);"></span> 衣物类</div>
+      <ul>
+        <li>短袖 T恤 x 3</li>
+        <li>薄长袖/衬衫 x 2 (早晚防凉)</li>
+        <li>薄外套/卫衣 x 1</li>
+        <li>长裤 x 2 + 短裤 x 1</li>
+        <li>运动鞋 + 便鞋</li>
+      </ul>
+    </div>
+    <div class="card packing-card">
+      <div class="pack-category"><span class="dot" style="background: var(--accent-blue);"></span> 防护类</div>
+      <ul>
+        <li>防晒霜 SPF50+</li>
+        <li>墨镜</li>
+        <li>遮阳帽/伞</li>
+        <li>润唇膏 (昆明干燥)</li>
+        <li>折叠雨伞 (偶有阵雨)</li>
+      </ul>
+    </div>
+    <div class="card packing-card">
+      <div class="pack-category"><span class="dot" style="background: var(--accent-teal);"></span> 其他</div>
+      <ul>
+        <li>12306 车票截图</li>
+        <li>酒店预订确认</li>
+        <li>景区预约记录</li>
+        <li>个人常备药品</li>
+        <li>保温杯 (随时喝热水)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips" class="section">
+  <div class="section-header">
+    <div class="icon" style="background: rgba(247,120,186,0.1); color: var(--accent-pink); border: 1px solid rgba(247,120,186,0.2);">!</div>
+    <h2>实用贴士</h2>
+    <span class="desc">本地人经验总结</span>
+  </div>
+  <div class="tips-grid">
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-pink);">防晒是头等大事</div>
+      <ul>
+        <li>昆明海拔 1891 米，紫外线非常强</li>
+        <li>即使阴天也要涂防晒霜</li>
+        <li>墨镜和遮阳帽必备</li>
+        <li>避免正午长时间户外暴晒</li>
+      </ul>
+    </div>
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-purple);">温差应对</div>
+      <ul>
+        <li>早晚温差 10 C 以上，洋葱式穿衣</li>
+        <li>一件薄外套是万能搭</li>
+        <li>室内外温差大，进屋注意加减</li>
+        <li>昆明气候干燥，多喝水、带润唇膏</li>
+      </ul>
+    </div>
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-blue);">美食避坑</div>
+      <ul>
+        <li>菌子一定要煮熟再吃(至少15分钟)</li>
+        <li>景区餐饮价格偏高，市区更实惠</li>
+        <li>过桥米线认准老字号</li>
+        <li>鲜花饼买现烤的，真空装口感差</li>
+      </ul>
+    </div>
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-teal);">购物提醒</div>
+      <ul>
+        <li>鲜花饼推荐嘉华、潘祥记</li>
+        <li>斗南花市 20:00 后价格最低</li>
+        <li>鲜花可直接快递寄回肇庆</li>
+        <li>普洱茶去正规茶庄购买，避免景区</li>
+      </ul>
+    </div>
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-green);">交通技巧</div>
+      <ul>
+        <li>高铁提前 3-5 天 12306 购票</li>
+        <li>市区地铁 + 网约车最便捷</li>
+        <li>石林建议高铁往返(18分钟)</li>
+        <li>滇池/西山可安排在同一天</li>
+      </ul>
+    </div>
+    <div class="card tip-card">
+      <div class="tip-title" style="color: var(--accent-pink);">摄影建议</div>
+      <ul>
+        <li>翠湖/讲武堂适合复古民国风穿搭</li>
+        <li>斗南花市推荐碎花裙田园风</li>
+        <li>石林穿运动装 + 亮色冲锋衣</li>
+        <li>滇池大坝日落时分最出片</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>肇庆 → 昆明 | 4天3晚旅行规划</p>
+  <p style="margin-top: 8px;">数据来源：12306 / 马蜂窝 / 去哪儿 / 知乎攻略 | 价格仅供参考，以实际为准</p>
+  <p style="margin-top: 8px;">Generated with <span class="gradient-text">WorkBuddy</span></p>
+</footer>
+
+</div>
+
+<script>
+// Day toggle
+function toggleDay(el) {
+  el.classList.toggle('open');
+}
+
+// Nav active state + scroll spy
+const nav = document.getElementById('nav');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section[id]');
+
+function updateActiveNav() {
+  let current = '';
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 120) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.dataset.section === current);
+  });
+}
+
+// Nav show/hide on scroll
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const st = window.scrollY;
+  nav.classList.toggle('hidden', st > lastScroll && st > 200);
+  lastScroll = st;
+  updateActiveNav();
+});
+
+// Smooth scroll
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Initial open first day
+document.querySelector('.day-card.open');
+</script>
+
+</body>
+</html>
